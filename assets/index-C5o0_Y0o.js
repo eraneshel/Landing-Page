@@ -16,165 +16,38 @@ Error generating stack: `+e.message+`
   <link href="${Y}" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: ${j.bg};
-      --text: ${j.text};
-      --accent: ${j.accent};
-      --card: ${j.cardBg};
-      --font: ${d};
-    }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      direction: ${q};
-      line-height: 1.6;
-    }
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      padding: 1rem 2rem;
-      background: ${j.style==="bold"?"rgba(10,10,10,0.9)":"rgba(255,255,255,0.9)"};
-      backdrop-filter: blur(12px);
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid ${j.text}11;
-    }
+    :root { --bg: ${j.bg}; --text: ${j.text}; --accent: ${j.accent}; --card: ${j.cardBg}; --font: ${d}; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); direction: ${q}; line-height: 1.6; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1rem 2rem; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid ${j.text}11; }
     nav .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent); }
-    nav a {
-      text-decoration: none;
-      background: var(--accent);
-      color: #fff;
-      padding: 0.5rem 1.2rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: opacity 0.2s;
-    }
+    nav a { text-decoration: none; background: var(--accent); color: #fff; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; }
     nav a:hover { opacity: 0.85; }
-    .hero {
-      min-height: 100vh;
-      background: ${j.heroGrad};
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-    }
+    .hero { min-height: 100vh; background: ${j.heroGrad}; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; }
     .hero-inner { max-width: 720px; }
-    .badge {
-      display: inline-block;
-      background: ${j.accent}22;
-      color: var(--accent);
-      border: 1px solid ${j.accent}44;
-      padding: 0.3rem 1rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-      color: ${E.style==="professional"?"#ffffff":"var(--text)"};
-    }
+    .badge { display: inline-block; background: ${j.accent}22; color: var(--accent); border: 1px solid ${j.accent}44; padding: 0.3rem 1rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; animation: fadeUp 0.6s 0.1s ease both; }
     h1 span { color: var(--accent); }
-    .hero p {
-      font-size: 1.15rem;
-      opacity: 0.75;
-      max-width: 540px;
-      margin: 0 auto 2.5rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-      color: ${E.style==="professional"?"#ffffff":"var(--text)"};
-    }
-    .cta-group {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px ${j.accent}44;
-    }
+    .hero p { font-size: 1.15rem; opacity: 0.75; max-width: 540px; margin: 0 auto 2.5rem; animation: fadeUp 0.6s 0.2s ease both; }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+    .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 2.2rem; border-radius: 100px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px ${j.accent}44; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px ${j.accent}66; }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      border: 2px solid ${j.text}33;
-      transition: border-color 0.2s;
-      color: ${E.style==="professional"?"#ffffff":"var(--text)"};
-    }
+    .btn-secondary { background: transparent; padding: 0.9rem 2.2rem; border-radius: 100px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid ${j.text}33; transition: border-color 0.2s; color: var(--text); }
     .btn-secondary:hover { border-color: var(--accent); }
     section { padding: 5rem 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 800;
-      margin-bottom: 3rem;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid ${j.text}11;
-      border-radius: 16px;
-      padding: 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    .section-title { text-align: center; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 3rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .feature-card { background: var(--card); border: 1px solid ${j.text}11; border-radius: 16px; padding: 2rem; transition: transform 0.2s, box-shadow 0.2s; }
     .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px ${j.accent}22; }
     .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
     .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .feature-card p { opacity: 0.65; font-size: 0.95rem; }
-    ${E.socialProof?`
-    .social { background: var(--card); }
-    .proof-text {
-      text-align: center;
-      font-size: 1.3rem;
-      font-style: italic;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.8;
-      line-height: 1.8;
-    }
-    .proof-text::before { content: '"'; font-size: 4rem; color: var(--accent); display: block; line-height: 1; margin-bottom: -1rem; }
-    `:""}
-    .cta-section {
-      background: ${j.heroGrad};
-      text-align: center;
-      color: ${E.style==="professional"?"#ffffff":"inherit"};
-    }
+    .cta-section { background: ${j.heroGrad}; text-align: center; }
     .cta-section h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; }
     .cta-section p { opacity: 0.7; margin-bottom: 2rem; font-size: 1.05rem; }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.85rem;
-      opacity: 0.4;
-      border-top: 1px solid ${j.text}11;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      nav { padding: 0.75rem 1rem; }
-      section { padding: 3rem 1rem; }
-    }
+    footer { text-align: center; padding: 2rem; font-size: 0.85rem; opacity: 0.4; border-top: 1px solid ${j.text}11; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { nav { padding: 0.75rem 1rem; } section { padding: 3rem 1rem; } }
   </style>
 </head>
 <body>
@@ -182,7 +55,6 @@ Error generating stack: `+e.message+`
     <span class="logo">${E.businessName||"Brand"}</span>
     <a href="${E.ctaUrl||"#cta"}">${T}</a>
   </nav>
-
   <section class="hero">
     <div class="hero-inner">
       <div class="badge">${E.businessType||(O?"חדש":"New")}</div>
@@ -194,7 +66,6 @@ Error generating stack: `+e.message+`
       </div>
     </div>
   </section>
-
   ${M.length>0?`
   <section id="features">
     <div class="container">
@@ -209,14 +80,12 @@ Error generating stack: `+e.message+`
       </div>
     </div>
   </section>`:""}
-
   ${E.socialProof?`
-  <section class="social">
+  <section style="background: var(--card);">
     <div class="container">
-      <div class="proof-text">${E.socialProof}</div>
+      <div style="text-align:center;font-size:1.3rem;font-style:italic;max-width:600px;margin:0 auto;opacity:0.8;line-height:1.8;">"${E.socialProof}"</div>
     </div>
   </section>`:""}
-
   <section class="cta-section" id="cta">
     <div class="container">
       <h2>${O?"מוכנים להתחיל?":"Ready to Get Started?"}</h2>
@@ -224,25 +93,9 @@ Error generating stack: `+e.message+`
       <a href="${E.ctaUrl||"#"}" class="btn-primary">${T}</a>
     </div>
   </section>
-
-  <footer>
-    © ${new Date().getFullYear()} ${E.businessName||"Company"} · ${O?"כל הזכויות שמורות":"All rights reserved"}
-  </footer>
+  <footer>© ${new Date().getFullYear()} ${E.businessName||"Company"} · ${O?"כל הזכויות שמורות":"All rights reserved"}</footer>
 </body>
-</html>`}function om({onGenerate:E}){const[O,q]=Pl.useState(hc),d=(_,j)=>q(M=>({...M,[_]:j})),Y=(_,j)=>{const M=[...O.features];M[_]=j,q(x=>({...x,features:M}))};return b.jsx("div",{style:{maxWidth:680,margin:"0 auto",padding:"2rem 1rem"},children:b.jsxs("div",{style:{display:"grid",gap:"1.2rem"},children:[b.jsx(ot,{label:"מטרת הדף",children:b.jsxs("select",{value:O.goal,onChange:_=>d("goal",_.target.value),style:Sl(),children:[b.jsx("option",{value:"",children:"בחר מטרה"}),b.jsx("option",{value:"signup",children:"הרשמה / ליד"}),b.jsx("option",{value:"buy",children:"מכירה"}),b.jsx("option",{value:"download",children:"הורדה"}),b.jsx("option",{value:"contact",children:"יצירת קשר"})]})}),b.jsx(ot,{label:"שם העסק / מוצר",children:b.jsx("input",{value:O.businessName,onChange:_=>d("businessName",_.target.value),placeholder:"לדוגמה: Nexus, ClimaX, FitFlow...",style:Sl()})}),b.jsx(ot,{label:"תחום העסק",children:b.jsx("input",{value:O.businessType,onChange:_=>d("businessType",_.target.value),placeholder:"SaaS, אי-קומרס, שירות מקצועי...",style:Sl()})}),b.jsx(ot,{label:"קהל יעד",children:b.jsx("input",{value:O.targetAudience,onChange:_=>d("targetAudience",_.target.value),placeholder:"יזמים, הורים, חברות בינוניות...",style:Sl()})}),b.jsx(ot,{label:"הצעת הערך (כותרת ראשית)",children:b.jsx("input",{value:O.valueProposition,onChange:_=>d("valueProposition",_.target.value),placeholder:"המשפט שיתפוס את תשומת הלב...",style:Sl()})}),b.jsx(ot,{label:"יתרונות / פיצ'רים",children:O.features.map((_,j)=>b.jsx("input",{value:_,onChange:M=>Y(j,M.target.value),placeholder:`יתרון ${j+1}`,style:{...Sl(),marginBottom:8}},j))}),b.jsx(ot,{label:"טקסט כפתור CTA",children:b.jsx("input",{value:O.ctaText,onChange:_=>d("ctaText",_.target.value),placeholder:"הירשמו עכשיו / קבלו גישה...",style:Sl()})}),b.jsx(ot,{label:"קישור CTA",children:b.jsx("input",{value:O.ctaUrl,onChange:_=>d("ctaUrl",_.target.value),placeholder:"https://...",style:Sl()})}),b.jsx(ot,{label:"Social Proof (עדות / מספר)",children:b.jsx("input",{value:O.socialProof,onChange:_=>d("socialProof",_.target.value),placeholder:'"הכלי הטוב ביותר שניסיתי" — יוסי כהן, מנכ"ל...',style:Sl()})}),b.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12},children:[b.jsx(ot,{label:"סגנון",children:b.jsxs("select",{value:O.style,onChange:_=>d("style",_.target.value),style:Sl(),children:[b.jsx("option",{value:"minimal",children:"מינימליסטי"}),b.jsx("option",{value:"bold",children:"בולד / כהה"}),b.jsx("option",{value:"warm",children:"חם / אורגני"}),b.jsx("option",{value:"professional",children:"מקצועי / כחול"})]})}),b.jsx(ot,{label:"שפה",children:b.jsxs("select",{value:O.language,onChange:_=>d("language",_.target.value),style:Sl(),children:[b.jsx("option",{value:"hebrew",children:"עברית"}),b.jsx("option",{value:"english",children:"English"})]})})]}),b.jsx(ot,{label:"צבע ראשי",children:b.jsxs("div",{style:{display:"flex",alignItems:"center",gap:12},children:[b.jsx("input",{type:"color",value:O.colors,onChange:_=>d("colors",_.target.value),style:{width:48,height:40,border:"none",borderRadius:8,cursor:"pointer"}}),b.jsx("span",{style:{fontSize:14,opacity:.6},children:O.colors})]})}),b.jsx("button",{onClick:()=>E(O),style:Va(),children:"✨ צור דף נחיתה"})]})})}function dm({onGenerate:E}){const[O,q]=Pl.useState(0),[d,Y]=Pl.useState(hc),_=(M,x)=>Y(T=>({...T,[M]:x})),j=[b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("p",{style:{opacity:.6,marginBottom:8},children:"מה תרצה שהמבקר יעשה?"}),[["signup","📋","הרשמה / ליד"],["buy","🛒","רכישה"],["download","⬇️","הורדה"],["contact","📞","יצירת קשר"]].map(([M,x,T])=>b.jsxs("button",{onClick:()=>{_("goal",M),setTimeout(()=>q(1),300)},style:{...mm(),background:d.goal===M?"#6366f1":"#f4f4f8",color:d.goal===M?"#fff":"#111"},children:[x," ",T]},M))]},"goal"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.businessName,onChange:M=>_("businessName",M.target.value),placeholder:"שם העסק / מוצר",style:Sl()}),b.jsx("input",{value:d.businessType,onChange:M=>_("businessType",M.target.value),placeholder:"תחום: SaaS, חנות, שירות...",style:Sl()}),b.jsx("input",{value:d.targetAudience,onChange:M=>_("targetAudience",M.target.value),placeholder:"קהל יעד",style:Sl()}),b.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12},children:[b.jsxs("select",{value:d.language,onChange:M=>_("language",M.target.value),style:Sl(),children:[b.jsx("option",{value:"hebrew",children:"עברית"}),b.jsx("option",{value:"english",children:"English"})]}),b.jsxs("select",{value:d.style,onChange:M=>_("style",M.target.value),style:Sl(),children:[b.jsx("option",{value:"minimal",children:"מינימליסטי"}),b.jsx("option",{value:"bold",children:"כהה / בולד"}),b.jsx("option",{value:"warm",children:"חם"}),b.jsx("option",{value:"professional",children:"מקצועי"})]})]})]},"business"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.valueProposition,onChange:M=>_("valueProposition",M.target.value),placeholder:"כותרת ראשית — מה הערך המרכזי?",style:Sl()}),d.features.map((M,x)=>b.jsx("input",{value:M,onChange:T=>{const K=[...d.features];K[x]=T.target.value,_("features",K)},placeholder:`יתרון ${x+1}`,style:Sl()},x)),b.jsx("input",{value:d.socialProof,onChange:M=>_("socialProof",M.target.value),placeholder:"עדות / Social Proof (אופציונלי)",style:Sl()})]},"content"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.ctaText,onChange:M=>_("ctaText",M.target.value),placeholder:"טקסט כפתור CTA",style:Sl()}),b.jsx("input",{value:d.ctaUrl,onChange:M=>_("ctaUrl",M.target.value),placeholder:"קישור לאחר לחיצה (https://...)",style:Sl()}),b.jsx(ot,{label:"צבע ראשי",children:b.jsxs("div",{style:{display:"flex",alignItems:"center",gap:12},children:[b.jsx("input",{type:"color",value:d.colors,onChange:M=>_("colors",M.target.value),style:{width:48,height:40,border:"none",borderRadius:8}}),b.jsx("span",{style:{fontSize:13,opacity:.5},children:d.colors})]})})]},"design")];return b.jsxs("div",{style:{maxWidth:560,margin:"0 auto",padding:"2rem 1rem"},children:[b.jsx("div",{style:{display:"flex",gap:8,marginBottom:32},children:D0.map((M,x)=>b.jsxs("div",{style:{flex:1,cursor:x<=O?"pointer":"default"},onClick:()=>x<=O&&q(x),children:[b.jsx("div",{style:{height:4,borderRadius:4,background:x<=O?"#6366f1":"#e5e7eb",transition:"background 0.3s"}}),b.jsxs("div",{style:{fontSize:11,opacity:x===O?1:.4,marginTop:6,textAlign:"center",fontWeight:600},children:[M.icon," ",M.title]})]},M.id))}),b.jsx("div",{style:{minHeight:260},children:j[O]}),b.jsxs("div",{style:{display:"flex",gap:12,marginTop:24,justifyContent:"space-between"},children:[O>0&&b.jsx("button",{onClick:()=>q(M=>M-1),style:{...Va(),background:"#f4f4f8",color:"#333",flex:1},children:"← חזור"}),O<D0.length-1?b.jsx("button",{onClick:()=>q(M=>M+1),style:{...Va(),flex:1},children:"המשך →"}):b.jsx("button",{onClick:()=>E(d),style:{...Va(),flex:1},children:"✨ צור דף נחיתה"})]})]})}function rm({onGenerate:E}){const[O,q]=Pl.useState([{role:"assistant",text:`שלום! אני כאן לעזור לך לבנות דף נחיתה מקצועי 🚀
+</html>`}function om({onGenerate:E}){const[O,q]=Pl.useState(hc),d=(_,j)=>q(M=>({...M,[_]:j})),Y=(_,j)=>{const M=[...O.features];M[_]=j,q(x=>({...x,features:M}))};return b.jsx("div",{style:{maxWidth:680,margin:"0 auto",padding:"2rem 1rem"},children:b.jsxs("div",{style:{display:"grid",gap:"1.2rem"},children:[b.jsx(ot,{label:"מטרת הדף",children:b.jsxs("select",{value:O.goal,onChange:_=>d("goal",_.target.value),style:Sl(),children:[b.jsx("option",{value:"",children:"בחר מטרה"}),b.jsx("option",{value:"signup",children:"הרשמה / ליד"}),b.jsx("option",{value:"buy",children:"מכירה"}),b.jsx("option",{value:"download",children:"הורדה"}),b.jsx("option",{value:"contact",children:"יצירת קשר"})]})}),b.jsx(ot,{label:"שם העסק / מוצר",children:b.jsx("input",{value:O.businessName,onChange:_=>d("businessName",_.target.value),placeholder:"לדוגמה: Nexus, ClimaX, FitFlow...",style:Sl()})}),b.jsx(ot,{label:"תחום העסק",children:b.jsx("input",{value:O.businessType,onChange:_=>d("businessType",_.target.value),placeholder:"SaaS, אי-קומרס, שירות מקצועי...",style:Sl()})}),b.jsx(ot,{label:"קהל יעד",children:b.jsx("input",{value:O.targetAudience,onChange:_=>d("targetAudience",_.target.value),placeholder:"יזמים, הורים, חברות בינוניות...",style:Sl()})}),b.jsx(ot,{label:"הצעת הערך (כותרת ראשית)",children:b.jsx("input",{value:O.valueProposition,onChange:_=>d("valueProposition",_.target.value),placeholder:"המשפט שיתפוס את תשומת הלב...",style:Sl()})}),b.jsx(ot,{label:"יתרונות / פיצ'רים",children:O.features.map((_,j)=>b.jsx("input",{value:_,onChange:M=>Y(j,M.target.value),placeholder:`יתרון ${j+1}`,style:{...Sl(),marginBottom:8}},j))}),b.jsx(ot,{label:"טקסט כפתור CTA",children:b.jsx("input",{value:O.ctaText,onChange:_=>d("ctaText",_.target.value),placeholder:"הירשמו עכשיו / קבלו גישה...",style:Sl()})}),b.jsx(ot,{label:"קישור CTA",children:b.jsx("input",{value:O.ctaUrl,onChange:_=>d("ctaUrl",_.target.value),placeholder:"https://...",style:Sl()})}),b.jsx(ot,{label:"Social Proof",children:b.jsx("input",{value:O.socialProof,onChange:_=>d("socialProof",_.target.value),placeholder:'"הכלי הטוב ביותר שניסיתי" — יוסי כהן',style:Sl()})}),b.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12},children:[b.jsx(ot,{label:"סגנון",children:b.jsxs("select",{value:O.style,onChange:_=>d("style",_.target.value),style:Sl(),children:[b.jsx("option",{value:"minimal",children:"מינימליסטי"}),b.jsx("option",{value:"bold",children:"בולד / כהה"}),b.jsx("option",{value:"warm",children:"חם / אורגני"}),b.jsx("option",{value:"professional",children:"מקצועי / כחול"})]})}),b.jsx(ot,{label:"שפה",children:b.jsxs("select",{value:O.language,onChange:_=>d("language",_.target.value),style:Sl(),children:[b.jsx("option",{value:"hebrew",children:"עברית"}),b.jsx("option",{value:"english",children:"English"})]})})]}),b.jsx(ot,{label:"צבע ראשי",children:b.jsxs("div",{style:{display:"flex",alignItems:"center",gap:12},children:[b.jsx("input",{type:"color",value:O.colors,onChange:_=>d("colors",_.target.value),style:{width:48,height:40,border:"none",borderRadius:8,cursor:"pointer"}}),b.jsx("span",{style:{fontSize:14,opacity:.6},children:O.colors})]})}),b.jsx("button",{onClick:()=>E(O),style:Va(),children:"✨ צור דף נחיתה"})]})})}function dm({onGenerate:E}){const[O,q]=Pl.useState(0),[d,Y]=Pl.useState(hc),_=(M,x)=>Y(T=>({...T,[M]:x})),j=[b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("p",{style:{opacity:.6,marginBottom:8},children:"מה תרצה שהמבקר יעשה?"}),[["signup","📋","הרשמה / ליד"],["buy","🛒","רכישה"],["download","⬇️","הורדה"],["contact","📞","יצירת קשר"]].map(([M,x,T])=>b.jsxs("button",{onClick:()=>{_("goal",M),setTimeout(()=>q(1),300)},style:{...mm(),background:d.goal===M?"#6366f1":"#f4f4f8",color:d.goal===M?"#fff":"#111"},children:[x," ",T]},M))]},"goal"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.businessName,onChange:M=>_("businessName",M.target.value),placeholder:"שם העסק / מוצר",style:Sl()}),b.jsx("input",{value:d.businessType,onChange:M=>_("businessType",M.target.value),placeholder:"תחום: SaaS, חנות, שירות...",style:Sl()}),b.jsx("input",{value:d.targetAudience,onChange:M=>_("targetAudience",M.target.value),placeholder:"קהל יעד",style:Sl()}),b.jsxs("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12},children:[b.jsxs("select",{value:d.language,onChange:M=>_("language",M.target.value),style:Sl(),children:[b.jsx("option",{value:"hebrew",children:"עברית"}),b.jsx("option",{value:"english",children:"English"})]}),b.jsxs("select",{value:d.style,onChange:M=>_("style",M.target.value),style:Sl(),children:[b.jsx("option",{value:"minimal",children:"מינימליסטי"}),b.jsx("option",{value:"bold",children:"כהה / בולד"}),b.jsx("option",{value:"warm",children:"חם"}),b.jsx("option",{value:"professional",children:"מקצועי"})]})]})]},"business"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.valueProposition,onChange:M=>_("valueProposition",M.target.value),placeholder:"כותרת ראשית — מה הערך המרכזי?",style:Sl()}),d.features.map((M,x)=>b.jsx("input",{value:M,onChange:T=>{const K=[...d.features];K[x]=T.target.value,_("features",K)},placeholder:`יתרון ${x+1}`,style:Sl()},x)),b.jsx("input",{value:d.socialProof,onChange:M=>_("socialProof",M.target.value),placeholder:"עדות / Social Proof (אופציונלי)",style:Sl()})]},"content"),b.jsxs("div",{style:{display:"grid",gap:12},children:[b.jsx("input",{value:d.ctaText,onChange:M=>_("ctaText",M.target.value),placeholder:"טקסט כפתור CTA",style:Sl()}),b.jsx("input",{value:d.ctaUrl,onChange:M=>_("ctaUrl",M.target.value),placeholder:"קישור לאחר לחיצה (https://...)",style:Sl()}),b.jsx(ot,{label:"צבע ראשי",children:b.jsxs("div",{style:{display:"flex",alignItems:"center",gap:12},children:[b.jsx("input",{type:"color",value:d.colors,onChange:M=>_("colors",M.target.value),style:{width:48,height:40,border:"none",borderRadius:8}}),b.jsx("span",{style:{fontSize:13,opacity:.5},children:d.colors})]})})]},"design")];return b.jsxs("div",{style:{maxWidth:560,margin:"0 auto",padding:"2rem 1rem"},children:[b.jsx("div",{style:{display:"flex",gap:8,marginBottom:32},children:D0.map((M,x)=>b.jsxs("div",{style:{flex:1,cursor:x<=O?"pointer":"default"},onClick:()=>x<=O&&q(x),children:[b.jsx("div",{style:{height:4,borderRadius:4,background:x<=O?"#6366f1":"#e5e7eb",transition:"background 0.3s"}}),b.jsxs("div",{style:{fontSize:11,opacity:x===O?1:.4,marginTop:6,textAlign:"center",fontWeight:600},children:[M.icon," ",M.title]})]},M.id))}),b.jsx("div",{style:{minHeight:260},children:j[O]}),b.jsxs("div",{style:{display:"flex",gap:12,marginTop:24,justifyContent:"space-between"},children:[O>0&&b.jsx("button",{onClick:()=>q(M=>M-1),style:{...Va(),background:"#f4f4f8",color:"#333",flex:1},children:"← חזור"}),O<D0.length-1?b.jsx("button",{onClick:()=>q(M=>M+1),style:{...Va(),flex:1},children:"המשך →"}):b.jsx("button",{onClick:()=>E(d),style:{...Va(),flex:1},children:"✨ צור דף נחיתה"})]})]})}function rm({onGenerate:E}){const[O,q]=Pl.useState([{role:"assistant",text:`שלום! אני כאן לעזור לך לבנות דף נחיתה מקצועי 🚀
 
-ספר לי — מה אתה רוצה למכור או להציע?`}]),[d,Y]=Pl.useState(""),[_,j]=Pl.useState(!1),[M,x]=Pl.useState(hc),[T,K]=Pl.useState(!1),B=Pl.useRef(null);Pl.useEffect(()=>{B.current?.scrollIntoView({behavior:"smooth"})},[O]);const ol=async()=>{if(!d.trim()||_)return;const al=d.trim();Y(""),q(hl=>[...hl,{role:"user",text:al}]),j(!0);try{const hl=O.map(Gl=>({role:Gl.role==="assistant"?"assistant":"user",content:Gl.text}));hl.push({role:"user",content:al});const Dl=(await(await fetch("http://localhost:3001/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1e3,system:`אתה עוזר ידידותי שעוזר למשתמש לבנות דף נחיתה. שאל שאלות אחת-אחת כדי לאסוף:
-1. מטרת הדף (הרשמה/מכירה/הורדה/קשר)
-2. שם העסק ותחום
-3. קהל יעד
-4. הצעת ערך (כותרת ראשית)
-5. 2-3 יתרונות עיקריים
-6. טקסט CTA
-7. סגנון עיצוב (מינימליסטי/כהה/חם/מקצועי)
-8. שפה (עברית/אנגלית)
-
-אחרי שאספת את כל המידע, החזר JSON מדויק בפורמט:
-READY:{"goal":"signup","businessName":"...","businessType":"...","targetAudience":"...","valueProposition":"...","features":["...","...","..."],"ctaText":"...","ctaUrl":"","style":"minimal","language":"hebrew","colors":"#6366f1","socialProof":""}
-
-עד אז — שוחח בעברית, היה ידידותי וקצר. שאל שאלה אחת בכל הודעה.`,messages:hl})})).json()).content?.[0]?.text||"מצטער, נסה שוב.";if(Dl.includes("READY:")){const Gl=Dl.split("READY:")[1].trim();try{const Al=JSON.parse(Gl);x(Al),K(!0),q(Zl=>[...Zl,{role:"assistant",text:`מעולה! אספתי את כל המידע הדרוש 🎉
-לחץ על הכפתור למטה כדי לייצר את הדף שלך.`}])}catch{q(Al=>[...Al,{role:"assistant",text:Dl}])}}else q(Gl=>[...Gl,{role:"assistant",text:Dl}])}catch{q(hl=>[...hl,{role:"assistant",text:"שגיאה בתקשורת עם ה-AI. נסה שוב."}])}j(!1)};return b.jsxs("div",{style:{maxWidth:600,margin:"0 auto",display:"flex",flexDirection:"column",height:500},children:[b.jsxs("div",{style:{flex:1,overflowY:"auto",padding:"1rem",display:"flex",flexDirection:"column",gap:12},children:[O.map((al,hl)=>b.jsx("div",{style:{display:"flex",justifyContent:al.role==="user"?"flex-end":"flex-start"},children:b.jsx("div",{style:{maxWidth:"80%",padding:"0.75rem 1rem",borderRadius:16,background:al.role==="user"?"#6366f1":"#f4f4f8",color:al.role==="user"?"#fff":"#111",fontSize:14,lineHeight:1.6,borderBottomRightRadius:al.role==="user"?4:16,borderBottomLeftRadius:al.role==="user"?16:4,whiteSpace:"pre-wrap"},children:al.text})},hl)),_&&b.jsx("div",{style:{display:"flex",gap:6,padding:"0.5rem 1rem"},children:[0,1,2].map(al=>b.jsx("div",{style:{width:8,height:8,borderRadius:"50%",background:"#6366f1",opacity:.5,animation:`bounce 1s ${al*.2}s infinite`}},al))}),b.jsx("div",{ref:B})]}),T?b.jsx("button",{onClick:()=>E(M),style:{...Va(),margin:"1rem"},children:"✨ צור את הדף שלי"}):b.jsxs("div",{style:{display:"flex",gap:8,padding:"1rem",borderTop:"1px solid #eee"},children:[b.jsx("input",{value:d,onChange:al=>Y(al.target.value),onKeyDown:al=>al.key==="Enter"&&ol(),placeholder:"הקלד כאן...",style:{...Sl(),flex:1},disabled:_}),b.jsx("button",{onClick:ol,disabled:_,style:{...Va(),padding:"0.75rem 1.2rem"},children:"שלח"})]}),b.jsx("style",{children:"@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }"})]})}function ym({html:E,onBack:O,onDownload:q}){const[d,Y]=Pl.useState("desktop"),_={desktop:"100%",tablet:768,mobile:375};return b.jsxs("div",{style:{display:"flex",flexDirection:"column",height:"100%"},children:[b.jsxs("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"1rem 1.5rem",borderBottom:"1px solid #eee",background:"#fafafa"},children:[b.jsx("button",{onClick:O,style:{background:"none",border:"1px solid #ddd",borderRadius:8,padding:"0.4rem 0.9rem",cursor:"pointer",fontSize:13},children:"← חזור לעריכה"}),b.jsx("div",{style:{display:"flex",gap:6},children:[["desktop","🖥"],["tablet","📱"],["mobile","📲"]].map(([j,M])=>b.jsx("button",{onClick:()=>Y(j),style:{background:d===j?"#6366f1":"#f4f4f8",color:d===j?"#fff":"#333",border:"none",borderRadius:8,padding:"0.4rem 0.7rem",cursor:"pointer",fontSize:13},children:M},j))}),b.jsx("button",{onClick:q,style:{...Va(),padding:"0.5rem 1.2rem",fontSize:13},children:"⬇️ הורד HTML"})]}),b.jsx("div",{style:{flex:1,overflow:"auto",background:"#e5e7eb",display:"flex",justifyContent:"center",padding:"1.5rem"},children:b.jsx("div",{style:{width:_[d],maxWidth:"100%",boxShadow:"0 20px 60px rgba(0,0,0,0.15)",borderRadius:12,overflow:"hidden",background:"#fff"},children:b.jsx("iframe",{srcDoc:E,style:{width:"100%",height:700,border:"none"},title:"preview"})})})]})}function ot({label:E,children:O}){return b.jsxs("div",{children:[b.jsx("label",{style:{display:"block",fontSize:13,fontWeight:600,marginBottom:6,opacity:.7},children:E}),O]})}function Sl(){return{width:"100%",padding:"0.7rem 1rem",borderRadius:10,border:"1.5px solid #e5e7eb",fontSize:14,outline:"none",fontFamily:"inherit",background:"#fff",direction:"rtl"}}function Va(){return{background:"#6366f1",color:"#fff",border:"none",borderRadius:10,padding:"0.85rem 1.5rem",fontSize:15,fontWeight:700,cursor:"pointer",width:"100%",transition:"opacity 0.2s"}}function mm(){return{padding:"0.85rem 1.2rem",borderRadius:12,border:"2px solid #e5e7eb",cursor:"pointer",fontSize:15,fontWeight:600,textAlign:"right",transition:"all 0.2s",direction:"rtl"}}function vm(){const[E,O]=Pl.useState(null),[q,d]=Pl.useState(null),Y=j=>{d(sm(j))},_=()=>{const j=new Blob([q],{type:"text/html"}),M=URL.createObjectURL(j),x=document.createElement("a");x.href=M,x.download="landing-page.html",x.click()};return q?b.jsx(ym,{html:q,onBack:()=>d(null),onDownload:_}):b.jsxs("div",{style:{minHeight:"100vh",background:"#fafafa",fontFamily:"'Heebo', 'Inter', sans-serif",direction:"rtl"},children:[b.jsx("link",{rel:"preconnect",href:"https://fonts.googleapis.com"}),b.jsx("link",{href:"https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap",rel:"stylesheet"}),b.jsxs("div",{style:{background:"#fff",borderBottom:"1px solid #eee",padding:"1.2rem 2rem",display:"flex",alignItems:"center",gap:12},children:[b.jsx("div",{style:{width:36,height:36,borderRadius:10,background:"linear-gradient(135deg,#6366f1,#8b5cf6)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18},children:"✨"}),b.jsxs("div",{children:[b.jsx("div",{style:{fontWeight:800,fontSize:17},children:"Landing AI"}),b.jsx("div",{style:{fontSize:12,opacity:.5},children:"בניית דפי נחיתה בשניות"})]}),E&&b.jsx("button",{onClick:()=>O(null),style:{marginRight:"auto",background:"none",border:"1px solid #ddd",borderRadius:8,padding:"0.4rem 0.9rem",cursor:"pointer",fontSize:13},children:"← שנה מצב"})]}),E?b.jsxs("div",{style:{maxWidth:800,margin:"2rem auto",background:"#fff",borderRadius:20,border:"1px solid #eee",overflow:"hidden"},children:[b.jsx("div",{style:{padding:"1.2rem 1.5rem",borderBottom:"1px solid #f0f0f0",background:"#fafafa",fontWeight:700,fontSize:15},children:{[It.FORM]:"📋 טופס מלא",[It.WIZARD]:"🧙 ויזרד שלבי",[It.CHAT]:"💬 שיחה עם AI"}[E]}),E===It.FORM&&b.jsx(om,{onGenerate:Y}),E===It.WIZARD&&b.jsx(dm,{onGenerate:Y}),E===It.CHAT&&b.jsx(rm,{onGenerate:Y})]}):b.jsxs("div",{style:{maxWidth:700,margin:"4rem auto",padding:"0 1rem"},children:[b.jsx("h1",{style:{textAlign:"center",fontSize:"clamp(1.8rem,5vw,2.8rem)",fontWeight:800,marginBottom:8},children:"בחר את דרך העבודה שלך"}),b.jsx("p",{style:{textAlign:"center",opacity:.5,marginBottom:3},children:"שלושה מסלולים, תוצאה אחת: דף נחיתה מקצועי"}),b.jsx("div",{style:{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:16,marginTop:40},children:[{id:It.FORM,icon:"📋",title:"טופס מלא",desc:"מלא את כל הפרטים בבת אחת. מהיר ויעיל.",color:"#6366f1"},{id:It.WIZARD,icon:"🧙",title:"ויזרד שלבי",desc:"הדרכה צעד אחר צעד. מושלם למתחילים.",color:"#0ea5e9"},{id:It.CHAT,icon:"💬",title:"שיחה עם AI",desc:"ספר לי על העסק בשפה חופשית.",color:"#10b981"}].map(j=>b.jsxs("button",{onClick:()=>O(j.id),style:{background:"#fff",border:"2px solid #e5e7eb",borderRadius:16,padding:"2rem 1.5rem",cursor:"pointer",textAlign:"center",transition:"all 0.2s",fontFamily:"inherit"},onMouseEnter:M=>{M.currentTarget.style.borderColor=j.color,M.currentTarget.style.transform="translateY(-4px)",M.currentTarget.style.boxShadow=`0 12px 40px ${j.color}22`},onMouseLeave:M=>{M.currentTarget.style.borderColor="#e5e7eb",M.currentTarget.style.transform="",M.currentTarget.style.boxShadow=""},children:[b.jsx("div",{style:{fontSize:36,marginBottom:12},children:j.icon}),b.jsx("div",{style:{fontWeight:800,fontSize:16,marginBottom:8},children:j.title}),b.jsx("div",{style:{fontSize:13,opacity:.55,lineHeight:1.5},children:j.desc})]},j.id))})]})]})}cm.createRoot(document.getElementById("root")).render(b.jsx(Pl.StrictMode,{children:b.jsx(vm,{})}));
+ספר לי — מה אתה רוצה למכור או להציע?`}]),[d,Y]=Pl.useState(""),[_,j]=Pl.useState(!1),[M,x]=Pl.useState(hc),[T,K]=Pl.useState(!1),B=Pl.useRef(null);Pl.useEffect(()=>{B.current?.scrollIntoView({behavior:"smooth"})},[O]);const ol=async()=>{if(!d.trim()||_)return;const al=d.trim();Y(""),q(hl=>[...hl,{role:"user",text:al}]),j(!0);try{const hl=O.map(Gl=>({role:Gl.role==="assistant"?"assistant":"user",content:Gl.text}));hl.push({role:"user",content:al});const Dl=(await(await fetch("http://localhost:3001/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:hl})})).json()).content?.[0]?.text||"מצטער, נסה שוב.";if(Dl.includes("READY:")){const Gl=Dl.split("READY:")[1].trim();try{const Al=JSON.parse(Gl);x(Al),K(!0),q(Zl=>[...Zl,{role:"assistant",text:`מעולה! אספתי את כל המידע הדרוש 🎉
+לחץ על הכפתור למטה כדי לייצר את הדף שלך.`}])}catch{q(Al=>[...Al,{role:"assistant",text:Dl}])}}else q(Gl=>[...Gl,{role:"assistant",text:Dl}])}catch{q(hl=>[...hl,{role:"assistant",text:"שגיאה בתקשורת עם ה-AI. נסה שוב."}])}j(!1)};return b.jsxs("div",{style:{maxWidth:600,margin:"0 auto",display:"flex",flexDirection:"column",height:500},children:[b.jsxs("div",{style:{flex:1,overflowY:"auto",padding:"1rem",display:"flex",flexDirection:"column",gap:12},children:[O.map((al,hl)=>b.jsx("div",{style:{display:"flex",justifyContent:al.role==="user"?"flex-end":"flex-start"},children:b.jsx("div",{style:{maxWidth:"80%",padding:"0.75rem 1rem",borderRadius:16,background:al.role==="user"?"#6366f1":"#f4f4f8",color:al.role==="user"?"#fff":"#111",fontSize:14,lineHeight:1.6,borderBottomRightRadius:al.role==="user"?4:16,borderBottomLeftRadius:al.role==="user"?16:4,whiteSpace:"pre-wrap"},children:al.text})},hl)),_&&b.jsx("div",{style:{display:"flex",gap:6,padding:"0.5rem 1rem"},children:[0,1,2].map(al=>b.jsx("div",{style:{width:8,height:8,borderRadius:"50%",background:"#6366f1",opacity:.5,animation:`bounce 1s ${al*.2}s infinite`}},al))}),b.jsx("div",{ref:B})]}),T?b.jsx("button",{onClick:()=>E(M),style:{...Va(),margin:"1rem"},children:"✨ צור את הדף שלי"}):b.jsxs("div",{style:{display:"flex",gap:8,padding:"1rem",borderTop:"1px solid #eee"},children:[b.jsx("input",{value:d,onChange:al=>Y(al.target.value),onKeyDown:al=>al.key==="Enter"&&ol(),placeholder:"הקלד כאן...",style:{...Sl(),flex:1},disabled:_}),b.jsx("button",{onClick:ol,disabled:_,style:{...Va(),padding:"0.75rem 1.2rem"},children:"שלח"})]}),b.jsx("style",{children:"@keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} }"})]})}function ym({html:E,onBack:O,onDownload:q}){const[d,Y]=Pl.useState("desktop"),_={desktop:"100%",tablet:768,mobile:375};return b.jsxs("div",{style:{display:"flex",flexDirection:"column",height:"100%"},children:[b.jsxs("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"1rem 1.5rem",borderBottom:"1px solid #eee",background:"#fafafa"},children:[b.jsx("button",{onClick:O,style:{background:"none",border:"1px solid #ddd",borderRadius:8,padding:"0.4rem 0.9rem",cursor:"pointer",fontSize:13},children:"← חזור לעריכה"}),b.jsx("div",{style:{display:"flex",gap:6},children:[["desktop","🖥"],["tablet","📱"],["mobile","📲"]].map(([j,M])=>b.jsx("button",{onClick:()=>Y(j),style:{background:d===j?"#6366f1":"#f4f4f8",color:d===j?"#fff":"#333",border:"none",borderRadius:8,padding:"0.4rem 0.7rem",cursor:"pointer",fontSize:13},children:M},j))}),b.jsx("button",{onClick:q,style:{...Va(),padding:"0.5rem 1.2rem",fontSize:13},children:"⬇️ הורד HTML"})]}),b.jsx("div",{style:{flex:1,overflow:"auto",background:"#e5e7eb",display:"flex",justifyContent:"center",padding:"1.5rem"},children:b.jsx("div",{style:{width:_[d],maxWidth:"100%",boxShadow:"0 20px 60px rgba(0,0,0,0.15)",borderRadius:12,overflow:"hidden",background:"#fff"},children:b.jsx("iframe",{srcDoc:E,style:{width:"100%",height:700,border:"none"},title:"preview"})})})]})}function ot({label:E,children:O}){return b.jsxs("div",{children:[b.jsx("label",{style:{display:"block",fontSize:13,fontWeight:600,marginBottom:6,opacity:.7},children:E}),O]})}function Sl(){return{width:"100%",padding:"0.7rem 1rem",borderRadius:10,border:"1.5px solid #e5e7eb",fontSize:14,outline:"none",fontFamily:"inherit",background:"#fff",direction:"rtl"}}function Va(){return{background:"#6366f1",color:"#fff",border:"none",borderRadius:10,padding:"0.85rem 1.5rem",fontSize:15,fontWeight:700,cursor:"pointer",width:"100%",transition:"opacity 0.2s"}}function mm(){return{padding:"0.85rem 1.2rem",borderRadius:12,border:"2px solid #e5e7eb",cursor:"pointer",fontSize:15,fontWeight:600,textAlign:"right",transition:"all 0.2s",direction:"rtl"}}function vm(){const[E,O]=Pl.useState(null),[q,d]=Pl.useState(null),Y=j=>{d(sm(j))},_=()=>{const j=new Blob([q],{type:"text/html"}),M=URL.createObjectURL(j),x=document.createElement("a");x.href=M,x.download="landing-page.html",x.click()};return q?b.jsx(ym,{html:q,onBack:()=>d(null),onDownload:_}):b.jsxs("div",{style:{minHeight:"100vh",background:"#fafafa",fontFamily:"'Heebo', 'Inter', sans-serif",direction:"rtl"},children:[b.jsx("link",{rel:"preconnect",href:"https://fonts.googleapis.com"}),b.jsx("link",{href:"https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap",rel:"stylesheet"}),b.jsxs("div",{style:{background:"#fff",borderBottom:"1px solid #eee",padding:"1.2rem 2rem",display:"flex",alignItems:"center",gap:12},children:[b.jsx("div",{style:{width:36,height:36,borderRadius:10,background:"linear-gradient(135deg,#6366f1,#8b5cf6)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18},children:"✨"}),b.jsxs("div",{children:[b.jsx("div",{style:{fontWeight:800,fontSize:17},children:"Landing AI"}),b.jsx("div",{style:{fontSize:12,opacity:.5},children:"בניית דפי נחיתה בשניות"})]}),E&&b.jsx("button",{onClick:()=>O(null),style:{marginRight:"auto",background:"none",border:"1px solid #ddd",borderRadius:8,padding:"0.4rem 0.9rem",cursor:"pointer",fontSize:13},children:"← שנה מצב"})]}),E?b.jsxs("div",{style:{maxWidth:800,margin:"2rem auto",background:"#fff",borderRadius:20,border:"1px solid #eee",overflow:"hidden"},children:[b.jsx("div",{style:{padding:"1.2rem 1.5rem",borderBottom:"1px solid #f0f0f0",background:"#fafafa",fontWeight:700,fontSize:15},children:{[It.FORM]:"📋 טופס מלא",[It.WIZARD]:"🧙 ויזרד שלבי",[It.CHAT]:"💬 שיחה עם AI"}[E]}),E===It.FORM&&b.jsx(om,{onGenerate:Y}),E===It.WIZARD&&b.jsx(dm,{onGenerate:Y}),E===It.CHAT&&b.jsx(rm,{onGenerate:Y})]}):b.jsxs("div",{style:{maxWidth:700,margin:"4rem auto",padding:"0 1rem"},children:[b.jsx("h1",{style:{textAlign:"center",fontSize:"clamp(1.8rem,5vw,2.8rem)",fontWeight:800,marginBottom:8},children:"הי גל בא לך לפתח את האפליקציה שמייצרת דפי נחיתה?"}),b.jsx("p",{style:{textAlign:"center",opacity:.5,marginBottom:3},children:"שלושה מסלולים, תוצאה אחת: דף נחיתה מקצועי"}),b.jsx("div",{style:{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:16,marginTop:40},children:[{id:It.FORM,icon:"📋",title:"טופס מלא",desc:"מלא את כל הפרטים בבת אחת. מהיר ויעיל.",color:"#6366f1"},{id:It.WIZARD,icon:"🧙",title:"ויזרד שלבי",desc:"הדרכה צעד אחר צעד. מושלם למתחילים.",color:"#0ea5e9"},{id:It.CHAT,icon:"💬",title:"שיחה עם AI",desc:"ספר לי על העסק בשפה חופשית.",color:"#10b981"}].map(j=>b.jsxs("button",{onClick:()=>O(j.id),style:{background:"#fff",border:"2px solid #e5e7eb",borderRadius:16,padding:"2rem 1.5rem",cursor:"pointer",textAlign:"center",transition:"all 0.2s",fontFamily:"inherit"},onMouseEnter:M=>{M.currentTarget.style.borderColor=j.color,M.currentTarget.style.transform="translateY(-4px)",M.currentTarget.style.boxShadow=`0 12px 40px ${j.color}22`},onMouseLeave:M=>{M.currentTarget.style.borderColor="#e5e7eb",M.currentTarget.style.transform="",M.currentTarget.style.boxShadow=""},children:[b.jsx("div",{style:{fontSize:36,marginBottom:12},children:j.icon}),b.jsx("div",{style:{fontWeight:800,fontSize:16,marginBottom:8},children:j.title}),b.jsx("div",{style:{fontSize:13,opacity:.55,lineHeight:1.5},children:j.desc})]},j.id))})]})]})}cm.createRoot(document.getElementById("root")).render(b.jsx(Pl.StrictMode,{children:b.jsx(vm,{})}));
